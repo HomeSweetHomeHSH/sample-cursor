@@ -1,0 +1,20 @@
+#!/bin/sh
+# Maven Wrapper script
+set -e
+
+MAVEN_PROJECTBASEDIR="${MAVEN_BASEDIR:-$(cd "$(dirname "$0")" && pwd)}"
+MAVEN_WRAPPER_JAR="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
+MAVEN_WRAPPER_PROPERTIES="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+
+if [ -f "$MAVEN_WRAPPER_JAR" ]; then
+    java -jar "$MAVEN_WRAPPER_JAR" "$@"
+else
+    # Fallback: try system maven
+    if command -v mvn >/dev/null 2>&1; then
+        mvn "$@"
+    else
+        echo "Error: Maven is not installed and wrapper jar not found."
+        echo "Install Java 17+ and Maven, or run: brew install openjdk@17 maven"
+        exit 1
+    fi
+fi
